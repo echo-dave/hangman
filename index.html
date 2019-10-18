@@ -25,32 +25,47 @@
             const zooAnimals = ["bear", "lion", "tiger", "monkey", "snake", "wolf", "hyena"];
 
             let guessArray = []
+            let tries = 1;
 
             document.onkeyup = function (event) {
 
-                //zooAnimals[1].indexOf(guess)
-               /* let i = 0;
-                while (i < 5) {
-                }*/
-                let guess = event.key.toLowerCase();
-                if (guessArray.indexOf(guess) == -1) {
-                    console.log("guess key - " + guess);
-                    guessArray.push(guess);
-                    console.log("guess array - " + guessArray);
-                    console.log("index - " + guessArray.indexOf(guess));
-                    console.log("---");
-                    $("body").html($("<div>", { class: "status" })).html("You guessed " + guess);
-                    
-                    if ( zooAnimals[1].indexOf(guess) !== -1) {
-                        console.log("char inded " + zooAnimals[1].indexOf(guess));
+                //basic loop for 5 bad attempts
+                /* let tries = 0;
+                 while (tries < 5) {
+                 }*/
+
+                if (tries < 5) {
+
+                    let guess = event.key.toLowerCase();
+                    // initial check for a new or repeat letter guess
+                    if (guessArray.indexOf(guess) == -1) {
+                        console.log("guess key - " + guess);
+                        //push the guessed letter into an array   
+                        guessArray.push(guess);
+                        console.log("guess array - " + guessArray);
+                        console.log("index - " + guessArray.indexOf(guess));
+                        console.log("---");
+                        //output the guessed letter to a div with class status   
+                        $("body").html($("<div>", { class: "status" })).html("You guessed " + guess);
+
+                        if (zooAnimals[1].indexOf(guess) !== -1) {
+                            console.log("char inded " + zooAnimals[1].indexOf(guess));
+                        } else {
+                            return (tries++);
+                            $("body").html($("<div>", { class: "try" })).html("Try again!");
+                        }
+                        //if letter is repeated output message to status div  
+                    } else {
+                        $("body").html($("<div>", { class: "status" })).html("You already guessed " + guess);
                     }
 
                 } else {
-                    $("body").html($("<div>", { class: "status" })).html("You already guessed " + guess);
+                    $("body").html($("<div>", { class: "try" })).html("Better luck next time!");
+
                 }
 
+                console.log("tries " + tries);
             };
-
 
         });
     </script>
