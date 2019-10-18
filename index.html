@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script   src="https://code.jquery.com/jquery-3.4.1.min.js"   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="   crossorigin="anonymous"></script>
-    <script type="text/javascript" src="assets/js/javascript.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="assets/js/script.js"></script>
 
     <link rel="stylesheet" href="assets/css/reset.css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
@@ -13,15 +15,45 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Document</title>
 </head>
+
 <body>
-    
+
 
 
     <script type="text/javascript">
         $(document).ready(function () {
+            const zooAnimals = ["bear", "lion", "tiger", "monkey", "snake", "wolf", "hyena"];
+
+            let guessArray = []
+
+            document.onkeyup = function (event) {
+
+                //zooAnimals[1].indexOf(guess)
+               /* let i = 0;
+                while (i < 5) {
+                }*/
+                let guess = event.key.toLowerCase();
+                if (guessArray.indexOf(guess) == -1) {
+                    console.log("guess key - " + guess);
+                    guessArray.push(guess);
+                    console.log("guess array - " + guessArray);
+                    console.log("index - " + guessArray.indexOf(guess));
+                    console.log("---");
+                    $("body").html($("<div>", { class: "status" })).html("You guessed " + guess);
+                    
+                    if ( zooAnimals[1].indexOf(guess) !== -1) {
+                        console.log("char inded " + zooAnimals[1].indexOf(guess));
+                    }
+
+                } else {
+                    $("body").html($("<div>", { class: "status" })).html("You already guessed " + guess);
+                }
+
+            };
 
 
         });
     </script>
 </body>
+
 </html>
