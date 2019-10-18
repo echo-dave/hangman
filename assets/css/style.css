@@ -1,0 +1,16 @@
+body {margin: 2em auto; max-width:35em;}
+
+.try, .status {
+    border: solid black .125em;
+    border-radius: .25em;
+    padding:.25em;
+    text-align: center;
+}
+.try {
+    font-size: 1.5em;
+    font-weight: 900;
+}
+
+.status {
+    font-size: 2em;
+}

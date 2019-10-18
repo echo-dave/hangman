@@ -22,10 +22,18 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+            // make a status div
+            $("body").append($("<div>", { "class": "try" }));
+            $("<div>", { "class": "status" }).insertAfter($("div.try"));
+
+
             const zooAnimals = ["bear", "lion", "tiger", "monkey", "snake", "wolf", "hyena"];
 
             let guessArray = []
             let tries = 1;
+
+
+
 
             document.onkeyup = function (event) {
 
@@ -46,21 +54,27 @@
                         console.log("index - " + guessArray.indexOf(guess));
                         console.log("---");
                         //output the guessed letter to a div with class status   
-                        $("body").html($("<div>", { class: "status" })).html("You guessed " + guess);
+                        // $("body").html($("<div>", {class: "status" }) +"You guessed " + guess + "</div>");
+                        $("div.status").html("You guessed " + guess);
 
                         if (zooAnimals[1].indexOf(guess) !== -1) {
                             console.log("char inded " + zooAnimals[1].indexOf(guess));
                         } else {
+                            $("div.try").html("try again");
                             return (tries++);
-                            $("body").html($("<div>", { class: "try" })).html("Try again!");
+                            //$("body").html($("<div>", { class: "try" }) + "try again");
+
                         }
                         //if letter is repeated output message to status div  
                     } else {
-                        $("body").html($("<div>", { class: "status" })).html("You already guessed " + guess);
+                        //  $("body").html($("<div>", { class: "status" })).html("You already guessed " + guess);
+                        $("div.status").html("You already guessed " + guess);
+
                     }
 
                 } else {
-                    $("body").html($("<div>", { class: "try" })).html("Better luck next time!");
+                    //  $("body").html($("<div>", { class: "try" })).html("Better luck next time!");
+                    $("div.try").html("Better luck next time!");
 
                 }
 
