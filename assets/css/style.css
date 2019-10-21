@@ -1,10 +1,12 @@
-body {margin: 2em auto; max-width:35em;}
+body {margin: 1em auto; max-width:35em;}
 
 .try, .status {
     border: solid black .125em;
     border-radius: .25em;
-    padding:.25em;
+    padding:1em;
     text-align: center;
+    min-height: 5em;
+    margin-top:2em
 }
 .try {
     font-size: 1.5em;

@@ -14,33 +14,40 @@
     <link rel="stylesheet" href="assets/css/typography.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Document</title>
+    <style>
+        .letterBox {border-bottom: solid 1px black;height:2em;width:2em;display:inline-block;margin-right:.5em;}
+    </style>
 </head>
 
 <body>
 
+    <div id="start" style="width:8em; height:5em; background:green;">Start</div>
 
 
     <script type="text/javascript">
         $(document).ready(function () {
             // make a status div
-            $("body").append($("<div>", { "class": "try" }));
-            $("<div>", { "class": "status" }).insertAfter($("div.try"));
+            $("body").append("<div class='try'>");
+            $("<div class='status'>").insertAfter($("div.try"));
 
 
             const zooAnimals = ["bear", "lion", "tiger", "monkey", "snake", "wolf", "hyena"];
 
             let guessArray = []
             let tries = 1;
+            let animalIndex=[0];
 
 
+            $("#start").on("click", function() {
+                for (i = 0; i < zooAnimals[0].lenth; i++) {
+                     $('body').prepend(`<div class="letterBox letter-${i}"><div>`);
+                 }
+         
 
+            
 
             document.onkeyup = function (event) {
-
-                //basic loop for 5 bad attempts
-                /* let tries = 0;
-                 while (tries < 5) {
-                 }*/
+               
 
                 if (tries < 5) {
 
@@ -54,8 +61,11 @@
                         console.log("index - " + guessArray.indexOf(guess));
                         console.log("---");
                         //output the guessed letter to a div with class status   
-                        // $("body").html($("<div>", {class: "status" }) +"You guessed " + guess + "</div>");
-                        $("div.status").html("You guessed " + guess);
+                        // $("body").html(
+                        //     $("<div>", {class: "status" }) + "You guessed " + guess + "</div>"
+                        // );
+                       // $("body").append(`<div class="status">You guessed ${guess}</div>`);
+                         $("div.status").html("You guessed " + guess);
 
                         if (zooAnimals[1].indexOf(guess) !== -1) {
                             console.log("char inded " + zooAnimals[1].indexOf(guess));
@@ -82,6 +92,7 @@
             };
 
         });
+    })
     </script>
 </body>
 
