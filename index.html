@@ -15,9 +15,17 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Document</title>
     <style>
-        
-        .letterBox {border-bottom: solid 1px black;height:2em;width:2em;display:inline-block;margin-right:.5em;}
-        #start:hover {cursor: pointer;}
+        .letterBox {
+            border-bottom: solid 1px black;
+            height: 2em;
+            width: 2em;
+            display: inline-block;
+            margin-right: .5em;
+        }
+
+        #start:hover {
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -28,54 +36,65 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-        
+
             // make a status div
             $("body").append("<div class='try'>");
             $("<div class='status'>").insertAfter($("div.try"));
 
 
-            const zooAnimals = ["bear", "lion", "tiger", "monkey", "snake", "wolf", "hyena"];
+            const zooAnimals = ["bear", "lion", "tiger", "monkey", "snake", "wolf", "hyena", "bee"];
 
             let guessArray = []
             let tries = 1;
-            let animalIndex=[0];
+            let animalIndex = [7];
 
 
-            $("#start").on("click", function() {
+            $("#start").on("click", function () {
                 for (i = zooAnimals[animalIndex].length; i > 0; i--) {
-                     $('body').prepend(`<div class="letterBox letter-${i-1}"><div>`);
-                 }
-         
+                    $('body').prepend(`<div class="letterBox letter-${i - 1}"><div>`);
+                }
 
-            
 
-            document.onkeyup = function (event) {
-               
 
-                if (tries < 5) {
 
-                    let guess = event.key.toLowerCase();
-                    // initial check for a new or repeat letter guess
-                    if (guessArray.indexOf(guess) == -1) {
-                        console.log("guess key - " + guess);
-                        //push the guessed letter into an array
-                        guessArray.push(guess);
-                        console.log("guess array - " + guessArray);
-                        console.log("index - " + guessArray.indexOf(guess));
-                        console.log("---");
-                       /*  let guessId = guessArray.indexOf(guess)
-                        ${".letter-"} */
+                document.onkeyup = function (event) {
 
-                        //output the guessed letter to a div with class status   
-                        // $("body").html(
-                        //     $("<div>", {class: "status" }) + "You guessed " + guess + "</div>"
-                        // );
-                       // $("body").append(`<div class="status">You guessed ${guess}</div>`);
-                         $("div.status").html("You guessed " + guess);
 
-                        if (zooAnimals[animalIndex].indexOf(guess) !== -1) {
-                            console.log("char index " + zooAnimals[1].indexOf(guess));
-                            $(`.letter-${zooAnimals[animalIndex].indexOf(guess)}`).html(guess);
+                    if (tries < 5) {
+
+                        let guess = event.key.toLowerCase();
+                        // initial check for a new or repeat letter guess
+                        if (guessArray.indexOf(guess) == -1) {
+                            console.log("guess key - " + guess);
+                            //push the guessed letter into an array
+                            guessArray.push(guess);
+                            console.log("guess array - " + guessArray);
+                            console.log("index - " + guessArray.indexOf(guess));
+                            console.log("---");
+                            /*  let guessId = guessArray.indexOf(guess)
+                             ${".letter-"} */
+
+                            //output the guessed letter to a div with class status   
+                            // $("body").html(
+                            //     $("<div>", {class: "status" }) + "You guessed " + guess + "</div>"
+                            // );
+                            // $("body").append(`<div class="status">You guessed ${guess}</div>`);
+                            $("div.status").html("You guessed " + guess);
+
+                            if (zooAnimals[animalIndex].indexOf(guess) !== -1) {
+                                console.log("char index " + zooAnimals[1].indexOf(guess));
+                                console.log(`pre for loop: ${zooAnimals[animalIndex].length}`)
+                                for (i = zooAnimals[animalIndex].length-1; i >= 0; i--) {
+                                    console.log('for loop index ->' + i)
+                                     if (zooAnimals[animalIndex][i] == guess) {
+                                        console.log(`for loop: ${zooAnimals[animalIndex][i].indexOf(guess)}`) 
+                                        $(`.letter-${i}`).html(guess); 
+                                        
+                                        /* $(`.letter-${zooAnimals[animalIndex].indexOf(guess)}`).html(guess); */
+                                     }
+                                }
+                            }
+
 
                         } else {
                             $("div.try").html("try again");
@@ -90,17 +109,17 @@
 
                     }
 
-                } else {
+                } /* else {
                     //  $("body").html($("<div>", { class: "try" })).html("Better luck next time!");
                     $("div.try").html("Better luck next time!");
 
-                }
+                } */
 
                 console.log("tries " + tries);
-            };
+            });
 
         });
-    })
+    
     </script>
 </body>
 
