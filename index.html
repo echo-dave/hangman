@@ -17,7 +17,7 @@
     <style>
         
         .letterBox {border-bottom: solid 1px black;height:2em;width:2em;display:inline-block;margin-right:.5em;}
-        .start:hover {cursor:pointer;}
+        #start:hover {cursor: pointer;}
     </style>
 </head>
 
@@ -42,8 +42,8 @@
 
 
             $("#start").on("click", function() {
-                for (i = 0; i < zooAnimals[0].length; i++) {
-                     $('body').prepend(`<div class="letterBox letter-${i}"><div>`);
+                for (i = zooAnimals[animalIndex].length; i > 0; i--) {
+                     $('body').prepend(`<div class="letterBox letter-${i-1}"><div>`);
                  }
          
 
@@ -58,11 +58,14 @@
                     // initial check for a new or repeat letter guess
                     if (guessArray.indexOf(guess) == -1) {
                         console.log("guess key - " + guess);
-                        //push the guessed letter into an array   
+                        //push the guessed letter into an array
                         guessArray.push(guess);
                         console.log("guess array - " + guessArray);
                         console.log("index - " + guessArray.indexOf(guess));
                         console.log("---");
+                       /*  let guessId = guessArray.indexOf(guess)
+                        ${".letter-"} */
+
                         //output the guessed letter to a div with class status   
                         // $("body").html(
                         //     $("<div>", {class: "status" }) + "You guessed " + guess + "</div>"
@@ -70,8 +73,10 @@
                        // $("body").append(`<div class="status">You guessed ${guess}</div>`);
                          $("div.status").html("You guessed " + guess);
 
-                        if (zooAnimals[1].indexOf(guess) !== -1) {
-                            console.log("char inded " + zooAnimals[1].indexOf(guess));
+                        if (zooAnimals[animalIndex].indexOf(guess) !== -1) {
+                            console.log("char index " + zooAnimals[1].indexOf(guess));
+                            $(`.letter-${zooAnimals[animalIndex].indexOf(guess)}`).html(guess);
+
                         } else {
                             $("div.try").html("try again");
                             return (tries++);
