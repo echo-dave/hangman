@@ -1,10 +1,10 @@
 $(document).ready(function () {
 
     // make a status div for trys
-    $("body").append("<div class='try'>");
+    $("body").append("<div class='try' style='display:none;'>");
 
     //status box displaying guessed letters
-    $("<div class='status'>").insertAfter($("div.try"));
+    $("<div class='status' style='display:none;'>").insertAfter($("div.try"));
 
 
     const zooAnimals = ["leopard", "lion", "tiger", "monkey", "snake", "elephant", "hyena", "gorillas"];
@@ -41,7 +41,8 @@ $(document).ready(function () {
             countWin =0;
             $(".status").html("");
             $(".try").html("");
-
+            $(".try").css("display","block")
+            $(".status").css("display","block")
             console.log("clear game");
         }
 
