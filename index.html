@@ -15,43 +15,80 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Document</title>
     <style>
+        .letterHolder {
+            margin: 4em auto 2em;
+        }
+
         .letterBox {
             border-bottom: solid 1px black;
             height: 2em;
             width: 2em;
             display: inline-block;
             margin-right: .5em;
+
         }
 
         #start:hover {
             cursor: pointer;
+
+        }
+
+        #start {
+            padding: 2.5em 2em;
+            color: #fff;
+            background: green;
+            display: block;
+            border-radius: .5em;
+            text-align: center;
+            margin-top: 3em;
+
         }
     </style>
 </head>
 
 <body>
 
-    <div id="start" style="width:8em; height:5em; background:green;margin:10em;">Start</div>
+    <span id="start">Click to start</span>
 
 
     <script type="text/javascript">
         $(document).ready(function () {
 
-            // make a status div
+            // make a status div for trys
             $("body").append("<div class='try'>");
+
+            //status box displaying guessed letters
             $("<div class='status'>").insertAfter($("div.try"));
 
 
             const zooAnimals = ["bear", "lion", "tiger", "monkey", "snake", "wolf", "hyena", "bee"];
 
-            let guessArray = []
+            let guessArray = [];
             let tries = 1;
-            let animalIndex = [7];
+            let animalIndex = [];
 
+            //randomize word from array
+            function randomWord() {
+                animalIndex = Math.floor(Math.random() * 7);
+                console.log("animal index " + animalIndex);
+            }
+
+            randomWord()
+            // make our slots to hold our currently correct letters
 
             $("#start").on("click", function () {
+                // clear previous game
+                if ($(".letterHolder").length !== 0) {
+                    $(".letterHolder").remove();
+                    randomWord();
+                    tries = 1;
+                    guessArray = [];
+                }
+
+
+                $('body').prepend(`<div class="letterHolder"></div>`);
                 for (i = zooAnimals[animalIndex].length; i > 0; i--) {
-                    $('body').prepend(`<div class="letterBox letter-${i - 1}"><div>`);
+                    $('.letterHolder').prepend(`<div class="letterBox letter-${i - 1}"><div>`);
                 }
 
 
@@ -71,6 +108,8 @@
                             console.log("guess array - " + guessArray);
                             console.log("index - " + guessArray.indexOf(guess));
                             console.log("---");
+
+                            
                             /*  let guessId = guessArray.indexOf(guess)
                              ${".letter-"} */
 
@@ -79,47 +118,66 @@
                             //     $("<div>", {class: "status" }) + "You guessed " + guess + "</div>"
                             // );
                             // $("body").append(`<div class="status">You guessed ${guess}</div>`);
-                            $("div.status").html("You guessed " + guess);
+
+                            //loop guessed letters for output
+                            
+                            
+
+                            function letterGuessOutput () {
+                                for ( i=0; i<= guessArray.length; i++) {
+                                guessArray[i];
+                                }
+                            }
+                            console.log("guess array " + letterGuessOutput());
+                            $("div.status").html(`<h2>You guessed  ${guess} </h2> <p>  ${guessArray}`);
 
                             if (zooAnimals[animalIndex].indexOf(guess) !== -1) {
                                 console.log("char index " + zooAnimals[1].indexOf(guess));
                                 console.log(`pre for loop: ${zooAnimals[animalIndex].length}`)
-                                for (i = zooAnimals[animalIndex].length-1; i >= 0; i--) {
+
+                                //confirm a good guess
+                            $("div.try").html("Good Job!");
+
+                                for (i = zooAnimals[animalIndex].length - 1; i >= 0; i--) {
                                     console.log('for loop index ->' + i)
-                                     if (zooAnimals[animalIndex][i] == guess) {
-                                        console.log(`for loop: ${zooAnimals[animalIndex][i].indexOf(guess)}`) 
-                                        $(`.letter-${i}`).html(guess); 
-                                        
+                                    if (zooAnimals[animalIndex][i] == guess) {
+                                        console.log(`for loop: ${zooAnimals[animalIndex][i].indexOf(guess)}`)
+                                        $(`.letter-${i}`).html(guess);
+
                                         /* $(`.letter-${zooAnimals[animalIndex].indexOf(guess)}`).html(guess); */
-                                     }
+                                    }
                                 }
+                                //if letter is repeated output message to status div  
+
+                            } else {
+                                          //confirm a good guess
+                            $("div.try").html("Try Again!");
+                                return (tries++);
+                                //$("body").html($("<div>", { class: "try" }) + "try again");
+
+
+
                             }
 
 
                         } else {
-                            $("div.try").html("try again");
-                            return (tries++);
-                            //$("body").html($("<div>", { class: "try" }) + "try again");
+                            //  $("body").html($("<div>", { class: "status" })).html("You already guessed " + guess);
+                            $("div.status").html("You already guessed " + guess);
 
                         }
-                        //if letter is repeated output message to status div  
                     } else {
-                        //  $("body").html($("<div>", { class: "status" })).html("You already guessed " + guess);
-                        $("div.status").html("You already guessed " + guess);
+                        //  $("body").html($("<div>", { class: "try" })).html("Better luck next time!");
+                        $("div.try").html("Better luck next time!");
 
                     }
 
-                } /* else {
-                    //  $("body").html($("<div>", { class: "try" })).html("Better luck next time!");
-                    $("div.try").html("Better luck next time!");
-
-                } */
+                }
 
                 console.log("tries " + tries);
             });
 
         });
-    
+
     </script>
 </body>
 
