@@ -7,8 +7,8 @@ $(document).ready(function () {
     $("<div class='status'>").insertAfter($("div.try"));
 
 
-    const zooAnimals = ["bear", "lion", "tiger", "monkey", "snake", "wolf", "hyena"];
-
+    const zooAnimals = ["leopard", "lion", "tiger", "monkey", "snake", "elephant", "hyena", "gorillas"];
+    let oldWords = []
     let guessArray = [];
     let tries = 1;
     let animalIndex = [];
@@ -19,6 +19,11 @@ $(document).ready(function () {
     function randomWord() {
         animalIndex = Math.floor(Math.random() * 7);
         console.log("animal index " + animalIndex);
+
+        while (oldWords.indexOf(animalIndex) !==-1 ) {
+            animalIndex = Math.floor(Math.random() * 7);
+            console.log("animal index " + animalIndex);
+        }
     }
 
     // make our slots to hold our currently correct letters
@@ -34,6 +39,9 @@ $(document).ready(function () {
             tries = 1;
             guessArray = [];
             countWin =0;
+            $(".status").html("");
+            $(".try").html("");
+
             console.log("clear game");
         }
 
