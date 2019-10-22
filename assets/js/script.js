@@ -13,7 +13,7 @@ $(document).ready(function () {
     let tries = 1;
     let animalIndex = [];
     let countWin = 0;
-    let win = false;
+    let gameEnd = true;
 
     //randomize word from array
     function randomWord() {
@@ -21,7 +21,6 @@ $(document).ready(function () {
         console.log("animal index " + animalIndex);
     }
 
-    randomWord()
     // make our slots to hold our currently correct letters
 
     $("#start").on("click", function () {
@@ -29,14 +28,18 @@ $(document).ready(function () {
         $("#start").css("display", "none");
 
         // clear previous game
-        if ($(".letterHolder").length !== 0) {
+        function newGame () {
             $(".letterHolder").remove();
             randomWord();
             tries = 1;
             guessArray = [];
-            win = false;
+            countWin =0;
+            console.log("clear game");
         }
 
+        if (gameEnd == true) {
+            newGame();
+        }
 
         $('#title').append(`<div class="letterHolder"></div>`);
         for (let i = zooAnimals[animalIndex].length; i > 0; i--) {
@@ -49,7 +52,7 @@ $(document).ready(function () {
         document.onkeyup = function (event) {
 
 
-            if (tries < 5 && win === false) {
+            if (tries < 5) {
 
                 let guess = event.key.toLowerCase();
                 // initial check for a new or repeat letter guess
@@ -107,8 +110,8 @@ $(document).ready(function () {
                                 if (countWin == zooAnimals[animalIndex].length) {
                                     $("div.try").html("Good Job, You Win!");
                                     $("#start").css("display", "block");
-
-                                    return win = true;
+                                    console.log("win line 110")
+                                    return; // win = true;
                                 }
                             }
                         }
@@ -130,21 +133,22 @@ $(document).ready(function () {
                 }
             } else {
 
-                if (win === true) {
+               /*  if (win === true) {
                     $("#start").css("display", "block");
-
+                    console.log("if win trie line 135")
                     return;
-                } else {
+                } else { */
 
 
                     //  $("body").html($("<div>", { class: "try" })).html("Better luck next time!");
                     $("div.try").html("Better luck next time!");
+                    $("#start").css("display", "block");
+
                 }
-            }
+            
 
         }
 
-        console.log("tries " + tries);
     });
 
 });
