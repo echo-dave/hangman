@@ -25,17 +25,21 @@ $(document).ready(function () {
     // make our slots to hold our currently correct letters
 
     $("#start").on("click", function () {
+        //hide button
+        $("#start").css("display", "none");
+
         // clear previous game
         if ($(".letterHolder").length !== 0) {
             $(".letterHolder").remove();
             randomWord();
             tries = 1;
             guessArray = [];
+            win = false;
         }
 
 
         $('#title').append(`<div class="letterHolder"></div>`);
-        for (i = zooAnimals[animalIndex].length; i > 0; i--) {
+        for (let i = zooAnimals[animalIndex].length; i > 0; i--) {
             $('.letterHolder').prepend(`<div class="letterBox letter-${i - 1}"><div>`);
         }
 
@@ -70,13 +74,15 @@ $(document).ready(function () {
                     //loop guessed letters for output
 
 
-                    //reference error on guessArray
+                    //reference error on guessArray - tried to use to output guesses into status div
                     function letterGuessOutput() {
                         for (i = 0; i <= guessArray.length; i++) {
                             guessArray[i];
                         }
                     }
-                    console.log("guess array " + letterGuessOutput());
+                    // console.log("guess array " + letterGuessOutput());
+                    // $("div.status").html(`<h2>You guessed  ${guess} </h2> <p>  ${letterGuessOutput()}`);
+
                     $("div.status").html(`<h2>You guessed  ${guess} </h2> <p>  ${guessArray}`);
 
                     if (zooAnimals[animalIndex].indexOf(guess) !== -1) {
@@ -100,6 +106,7 @@ $(document).ready(function () {
 
                                 if (countWin == zooAnimals[animalIndex].length) {
                                     $("div.try").html("Good Job, You Win!");
+                                    $("#start").css("display", "block");
 
                                     return win = true;
                                 }
@@ -124,6 +131,8 @@ $(document).ready(function () {
             } else {
 
                 if (win === true) {
+                    $("#start").css("display", "block");
+
                     return;
                 } else {
 
