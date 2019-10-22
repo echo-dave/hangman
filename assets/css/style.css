@@ -1,18 +1,50 @@
-body {margin: 1em auto; max-width:35em;}
+body {margin: 1em auto; max-width:54em;}
 
 .try, .status {
     border: solid black .125em;
     border-radius: .25em;
     padding:1em;
     text-align: center;
-    min-height: 5em;
-    margin-top:2em
+    height: 12rem;
+    margin-top:2rem;
+    width:18rem;
 }
 .try {
     font-size: 1.5em;
     font-weight: 900;
+    float:left;
 }
 
 .status {
     font-size: 2em;
+    float:right;
+}
+.letterHolder {
+    margin: 4em auto 2em;
+}
+
+.letterBox {
+    border-bottom: solid 1px black;
+    height: 2em;
+    width: 2em;
+    display: inline-block;
+    margin-right: .5em;
+
+}
+
+#start:hover {
+    cursor: pointer;
+
+}
+
+#start {
+    padding: 2.5em 2em;
+    color: #fff;
+    background: green;
+    display: block;
+    border-radius: .5em;
+    text-align: center;
+    margin-top: 3em;
+
+
 }
