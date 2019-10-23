@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     // make a status div for trys
-    $("body").append("<div class='try' style='display:none;'>");
+    $("#wrap").append("<div class='try' style='display:none;'>");
 
     //status box displaying guessed letters
     $("<div class='status' style='display:none;'>").insertAfter($("div.try"));

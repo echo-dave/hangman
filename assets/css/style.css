@@ -95,6 +95,14 @@ h1, h2 {
     color:orange;
 }
 
+#wrap {
+    border: black solid .125em;
+    background: #eee;
+    padding:0em 3em 3em;
+    border-radius: .5em;
+    margin-top:2em;
+}
+
 .clearfix:after {
     visibility: hidden;
     display: block;
