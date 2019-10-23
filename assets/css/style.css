@@ -10,7 +10,7 @@ h1, h2 {
     height: 12rem;
     margin-top:3rem;
     width:20rem;
-    background: rgb(39, 39, 39);
+    background: rgba(39, 39, 39, 0.89);
     color:rgb(226, 226, 226);
     box-sizing: border-box;
 }
@@ -29,7 +29,7 @@ h1, h2 {
     text-align: center;
     padding: 1rem 0rem 2rem 0rem;
     border-radius: .25rem;
-    background: rgb(199, 199, 199);
+    background: rgba(199, 199, 199, 0.76);
     border:solid rgb(32, 32, 32) .125rem;
 }
 
@@ -97,10 +97,11 @@ h1, h2 {
 
 #wrap {
     border: black solid .125em;
-    background: #eee;
     padding:0em 3em 3em;
     border-radius: .5em;
     margin-top:2em;
+    background-size: cover 100%;
+    background-repeat: no-repeat;
 }
 
 .clearfix:after {
