@@ -17,13 +17,20 @@ $(document).ready(function () {
 
     //randomize word from array
     function randomWord() {
-        animalIndex = Math.floor(Math.random() * 7);
+        animalIndex = Math.floor(Math.random() * zooAnimals.length);
         console.log("animal index " + animalIndex);
-
+//try to account for words already used
+if (oldWords.length < zooAnimals.length) {
         while (oldWords.indexOf(animalIndex) !==-1 ) {
-            animalIndex = Math.floor(Math.random() * 7);
-            console.log("animal index " + animalIndex);
+            animalIndex = Math.floor(Math.random() * zooAnimals.length);
+            console.log(`animal index ${animalIndex} old index ${oldWords}`);
         }
+        oldWords.push(animalIndex);
+        console.log(`pushed wold words into animal index: ${oldWords}`)
+    } else {
+      console.log("pre-return");   
+      return gameEnd = false;
+    }
     }
 
     // make our slots to hold our currently correct letters
@@ -48,6 +55,10 @@ $(document).ready(function () {
 
         if (gameEnd == true) {
             newGame();
+        } else {
+            $('.letterHolder').css("display","none");
+            $('body').prepend(`<div id='gameOver'><h1>No more words</h1> <h2>Game Over</h2><p>Refresh page to play again</p></div`);
+            return
         }
 
         $(`<div class="letterHolder"></div>`).insertAfter(".startBox");
@@ -102,7 +113,7 @@ $(document).ready(function () {
                         console.log(`pre for loop: ${zooAnimals[animalIndex].length}`)
 
                         //confirm a good guess
-                        $("div.try").html("Good Job!");
+                        $("div.try").html("<h2>Good Job!</h2>");
                         //loop through word as array to find dupplicate characters like e, e in bee
                         for (i = zooAnimals[animalIndex].length - 1; i >= 0; i--) {
                             console.log('for loop index ->' + i)
@@ -117,7 +128,7 @@ $(document).ready(function () {
                                 console.log("are we winning " + countWin);
 
                                 if (countWin == zooAnimals[animalIndex].length) {
-                                    $("div.try").html("Good Job, You Win!");
+                                    $("div.try").html("<h2>Good Job, You Win!</h2>");
                                     $("#start").css("display", "inline-block");
                                     console.log("win line 110")
                                     return; // win = true;
@@ -128,7 +139,7 @@ $(document).ready(function () {
 
                     } else {
                         //confirm a good guess
-                        $("div.try").html("Try Again! " + tries + " out of 5");
+                        $("div.try").html("<h2>Try Again!</h2> <p>" + tries + " out of 5 misses</p>");
                         return (tries++);
                         //$("body").html($("<div>", { class: "try" }) + "try again");
 
@@ -150,7 +161,7 @@ $(document).ready(function () {
 
 
                     //  $("body").html($("<div>", { class: "try" })).html("Better luck next time!");
-                    $("div.try").html("Better luck next time!");
+                    $("div.try").html("<h2>Better luck next time!</h2>");
                     $("#start").css("display", "inline-block");
 
                 }

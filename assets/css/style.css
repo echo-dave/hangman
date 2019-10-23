@@ -1,5 +1,7 @@
 body {margin: 1em auto; max-width:54em;}
-
+h1, h2 {
+    margin-bottom:.4em;
+}
 .try, .status {
     border: solid black .125em;
     border-radius: .75rem;
@@ -74,6 +76,23 @@ body {margin: 1em auto; max-width:54em;}
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+}
+
+#gameOver {
+    position: fixed;
+    top:50%;
+ left:50%;
+ margin-left:-20rem;
+ margin-top:-17.5rem;
+    height: 35rem;
+    width: 40rem;
+    background: rgba(80, 80, 80, 0.9);
+    text-align: center;
+    z-index: 100;
+    padding-top: 20%;
+    box-sizing: border-box;
+    border-radius: 1.3rem;
+    color:orange;
 }
 
 .clearfix:after {
