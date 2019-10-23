@@ -50,7 +50,7 @@ $(document).ready(function () {
             newGame();
         }
 
-        $('#title').append(`<div class="letterHolder"></div>`);
+        $(`<div class="letterHolder"></div>`).insertAfter(".startBox");
         for (let i = zooAnimals[animalIndex].length; i > 0; i--) {
             $('.letterHolder').prepend(`<div class="letterBox letter-${i - 1}"><div>`);
         }
@@ -118,7 +118,7 @@ $(document).ready(function () {
 
                                 if (countWin == zooAnimals[animalIndex].length) {
                                     $("div.try").html("Good Job, You Win!");
-                                    $("#start").css("display", "block");
+                                    $("#start").css("display", "inline-block");
                                     console.log("win line 110")
                                     return; // win = true;
                                 }
@@ -128,7 +128,7 @@ $(document).ready(function () {
 
                     } else {
                         //confirm a good guess
-                        $("div.try").html("Try Again!");
+                        $("div.try").html("Try Again! " + tries + " out of 5");
                         return (tries++);
                         //$("body").html($("<div>", { class: "try" }) + "try again");
 
@@ -151,7 +151,7 @@ $(document).ready(function () {
 
                     //  $("body").html($("<div>", { class: "try" })).html("Better luck next time!");
                     $("div.try").html("Better luck next time!");
-                    $("#start").css("display", "block");
+                    $("#start").css("display", "inline-block");
 
                 }
             
