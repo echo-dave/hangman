@@ -1,15 +1,4 @@
-# Basic template for web development
+#Hangman Word Game
+This project was a fun one with a lot of extra logic to sort through that wasn't necessarily imediatley apparent. A lot of comparing, looking, tracking and randomizing. Many of the visual elements are both generated and filled by java script while by styled by classes. At the end of it all I probably spent more about as much time going back through and styling and then adding some funtion to the style. It may be was to not start with such a scratch pad wire frame on some future projects.  
 
-## Indludes basic linked files
-* jquery
-* css reset
-* empty styles.css
-* basic typography.css
-* empty script.js
-
-
-Currently loaded default font is [Source Sans Pro from Google Fonts](https://fonts.google.com/specimen/Source+Sans+Pro) Another option would be something like [Montserrat - notably light 300](https://fonts.google.com/specimen/Montserrat)
-
-For a nice readable serif font [Roboto Slab could be considered](https://fonts.google.com/specimen/Roboto+Slab) Another strong serif option is [IBM Plex](https://fonts.google.com/specimen/IBM+Plex+Serif)
-
-Index.html also includes javascript section in body
+One of the biggest things I'm working on is documenting functions as I go so I don't have to spend the time deciphering which fuction does what and why in context. 

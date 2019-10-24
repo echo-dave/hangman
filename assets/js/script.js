@@ -71,9 +71,8 @@ if (oldWords.length < zooAnimals.length) {
 
         document.onkeyup = function (event) {
 
-
-            if (tries < 5) {
-
+            if (tries < 5 && event.metaKey == false) {
+                console.log(event.metaKey + "meta");
                 let guess = event.key.toLowerCase();
                 // initial check for a new or repeat letter guess
                 if (guessArray.indexOf(guess) == -1) {
