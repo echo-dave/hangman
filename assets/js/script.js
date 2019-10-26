@@ -70,7 +70,7 @@ if (oldWords.length < zooAnimals.length) {
 
 
         document.onkeyup = function (event) {
-
+            $(".letterHolder").css("display","visible");
             if (tries < 5 && event.metaKey == false) {
                 console.log(event.metaKey + "meta");
                 let guess = event.key.toLowerCase();
@@ -162,6 +162,7 @@ if (oldWords.length < zooAnimals.length) {
                     //  $("body").html($("<div>", { class: "try" })).html("Better luck next time!");
                     $("div.try").html("<h2>Better luck next time!</h2>");
                     $("#start").css("display", "inline-block");
+                    $(".letterHolder").css("display", "none");
 
                 }
             

@@ -1,4 +1,14 @@
-body {margin: 1em auto; max-width:54em;}
+body {
+    margin: 0 auto; 
+    width:64em;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    height:100vh;
+    min-height: 54em;
+    padding:2em 2em 1em;
+    box-sizing: border-box;
+}
 h1, h2 {
     margin-bottom:.4em;
 }
@@ -41,7 +51,7 @@ h1, h2 {
     margin-right: .5rem;
     text-align: center;
     font-size:4em;
-
+box-shadow: black;
 }
 
 #start:hover {
@@ -50,17 +60,26 @@ h1, h2 {
 }
 
 #start {
-    padding: 2.5em 2em;
+    padding: 1em;
     color: #fff;
     background: green;
     display: inline-block;
     border-radius: .5em;
     text-align: center;
-    margin-top: 4em;
-    clear:both;
+    margin-top: 3rem;
+    clear: both;
+    font-size: 2rem;
+    /* border:.25rem solid rgb(3, 209, 3); */
+    box-shadow: inset -3px -3px 12px -4px rgb(0, 68, 0);
+    transition: all 50ms linear;
+    }
 
-
+#start:hover {
+    box-shadow: inset 3px 3px 12px -2px rgb(0, 60, 0), inset -2px -2px 1px -0px rgb(0, 65, 5);
+    background: rgb(0, 120, 0);
+    transform: translate(1px, 1px);
 }
+
 #title {
     box-sizing: border-box;
     padding-left:3rem;
@@ -96,12 +115,13 @@ h1, h2 {
 }
 
 #wrap {
-    border: black solid .125em;
-    padding:0em 3em 3em;
+    border: rgba(44, 44, 44, 0.384) solid .125em;
+    padding:3em 6em 6em;
     border-radius: .5em;
     margin-top:2em;
-    background-size: cover 100%;
-    background-repeat: no-repeat;
+    background: rgba(163, 163, 163, 0.266);
+    box-sizing: content-box;
+
 }
 
 .clearfix:after {
