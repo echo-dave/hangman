@@ -4,10 +4,12 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
-    height:100vh;
+    /* height:100vh; */
     min-height: 54em;
     padding:2em 2em 1em;
     box-sizing: border-box;
+    background-attachment: fixed;
+
 }
 h1, h2 {
     margin-bottom:.4em;
@@ -17,7 +19,7 @@ h1, h2 {
     border-radius: .75rem;
     padding:1rem;
     text-align: center;
-    height: 12rem;
+    height: 6.5rem;
     margin-top:3rem;
     width:20rem;
     background: rgba(39, 39, 39, 0.89);
@@ -25,17 +27,17 @@ h1, h2 {
     box-sizing: border-box;
 }
 .try {
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: 900;
     float:left;
 }
 
 .status {
-    font-size: 2em;
+    font-size: 1.2em;
     float:right;
 }
 .letterHolder {
-    margin: 4.5rem auto 2rem;
+    margin: 4.5rem auto 1rem;
     text-align: center;
     padding: 1rem 0rem 2rem 0rem;
     border-radius: .25rem;
@@ -116,9 +118,10 @@ box-shadow: black;
 
 #wrap {
     border: rgba(44, 44, 44, 0.384) solid .125em;
-    padding:3em 6em 6em;
+    padding:3em 6em 5em;
     border-radius: .5em;
     margin-top:2em;
+    margin-bottom:2em;
     background: rgba(163, 163, 163, 0.266);
     box-sizing: content-box;
 
