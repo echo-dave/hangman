@@ -5,7 +5,7 @@ body {
     background-repeat: no-repeat;
     background-position: center top;
     /* height:100vh; */
-    min-height: 54em;
+    /* min-height: 54em; */
     padding:2em 2em 1em;
     box-sizing: border-box;
     background-attachment: fixed;
@@ -16,7 +16,7 @@ h1, h2 {
 }
 .try, .status {
     border: solid black .125em;
-    border-radius: .75rem;
+    border-radius: .45rem;
     padding:1rem;
     text-align: center;
     height: 6.5rem;
@@ -40,7 +40,7 @@ h1, h2 {
     margin: 4.5rem auto 1rem;
     text-align: center;
     padding: 1rem 0rem 2rem 0rem;
-    border-radius: .25rem;
+    border-radius: .45rem;
     background: rgba(199, 199, 199, 0.76);
     border:solid rgb(32, 32, 32) .125rem;
 }
@@ -66,7 +66,7 @@ box-shadow: black;
     color: #fff;
     background: green;
     display: inline-block;
-    border-radius: .5em;
+    border-radius: 4em;
     text-align: center;
     margin-top: 3rem;
     clear: both;
@@ -74,6 +74,7 @@ box-shadow: black;
     /* border:.25rem solid rgb(3, 209, 3); */
     box-shadow: inset -3px -3px 12px -4px rgb(0, 68, 0);
     transition: all 50ms linear;
+    text-transform: capitalize;
     }
 
 #start:hover {
@@ -117,12 +118,12 @@ box-shadow: black;
 }
 
 #wrap {
-    border: rgba(44, 44, 44, 0.384) solid .125em;
-    padding:3em 6em 5em;
+    /* border: rgba(44, 44, 44, 0.384) solid .125em; */
+    padding:0em 6em 5em;
     border-radius: .5em;
-    margin-top:2em;
-    margin-bottom:2em;
-    background: rgba(163, 163, 163, 0.266);
+    /* margin-top:2em; */
+    /* margin-bottom:2em; */
+    /* background: rgba(163, 163, 163, 0.266); */
     box-sizing: content-box;
 
 }
